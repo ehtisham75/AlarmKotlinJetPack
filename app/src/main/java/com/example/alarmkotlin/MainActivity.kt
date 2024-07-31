@@ -30,7 +30,17 @@ class MainActivity : ComponentActivity() {
                     )
                 }
                 composable(Routes.createAlarm) {
-                    CreateAlarmScreen()
+                    CreateAlarmScreen(
+                        onCancelClick = {
+                            // Navigate back to the home screen when "Cancel" is clicked
+                            navController.popBackStack()
+                        },
+                        onDoneClick = {
+                            // Handle what happens when "Done" is clicked
+                            // This might involve saving the alarm, then navigating back
+                            navController.popBackStack()
+                        }
+                    )
                 }
             })
         }
